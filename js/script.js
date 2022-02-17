@@ -48,8 +48,8 @@ function choiсeCur(result) {
             el.style.backgroundColor = 'rgb(185, 195, 211)'
         });    
     }
-    
-    table.innerHTML = ''
+
+    grafic.innerHTML = '';
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -71,22 +71,24 @@ function workerTwo(idCur, start, end) {
     }); 
 }
 
-let arrRate = []
+let arrRate;
 
 worker2.addEventListener('message', ({data}) => {
     
     if(data.length === 0){
 
-        table.innerText = 'Нет данных'
+        grafic.innerHTML = 'Нет данных';
 
         selectDate(today, today)
     }else{
+        
+        arrRate = [];
 
-        data.forEach(el => createTable(el.Date, el.Cur_OfficialRate,))
-       
+        data.forEach(el => arrRate.push([new Date(el.Date), el.Cur_OfficialRate]))
+        
+        createGrafic(arrRate);
+        
         selectDate(dayjs(data[0].Date).format('YYYY-MM-DD'), dayjs(data[data.length - 1].Date).format('YYYY-MM-DD'))
-
-        arrRate = data
     }
 });
 
@@ -95,6 +97,7 @@ worker2.addEventListener('message', ({data}) => {
 // Ивенты кнопок и селектов//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 buttonYear.addEventListener('click', () => {
+    
     fcnBtn (-365,buttonYear, arrRate)
 })
 buttonQuarter.addEventListener('click', () => {
@@ -109,11 +112,10 @@ buttonWeek.addEventListener('click', () => {
 
 let firstDate
 
-fromDate.addEventListener('change', (e) => {
-
+fromDate.addEventListener('change', () => {
+    
     arrRate.filter((el,id) => {
-        
-        if(el.Date.slice(0,10) == fromDate.value) firstDate = id
+        if(dayjs(el[0]).format('YYYY-MM-DD') == fromDate.value) firstDate = id
     });
     
     fncSelect()
@@ -122,12 +124,13 @@ fromDate.addEventListener('change', (e) => {
 let lastDate
 
 toDate.addEventListener('change', () => {
-    
-    arrRate.filter((el,id) => {
-        
-        if(el.Date.slice(0,10) == toDate.value) lastDate = id+1
-    });
 
+    arrRate.filter((el,id) => {
+        if(dayjs(el[0]).format('YYYY-MM-DD') == toDate.value) lastDate = id+1
+    });
+   
     fncSelect()
 })
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+

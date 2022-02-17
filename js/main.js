@@ -10,7 +10,7 @@ const fromDate = document.querySelector('.fromDate');
 const toDate = document.querySelector('.toDate')
 
 const h2 = document.querySelector('.h2')
-const table = document.querySelector('tbody')
+const grafic = document.getElementById('chart_div')
 
 // Заполнение селекта////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -24,23 +24,51 @@ function createSelect(arg){
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Заполнение таблицы////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function createTable(Date, Cur_OfficialRate,){
-    
-    const tr = document.createElement('tr')
-    const td1 = document.createElement('td')
-    const td2 = document.createElement('td')
-    
-    tr.append(td1,td2)
-    
-    td1.innerText = dayjs(Date).format('YYYY-MM-DD');
-    td2.innerText = Cur_OfficialRate;
+// Функция графика///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    table.prepend(tr);
+function createGrafic(array) {
+    grafic.innerHTML = '';
+
+    google.charts.load('current', {packages: ['corechart', 'line']});
+
+    google.charts.setOnLoadCallback(drawBasic);
+
+    function drawBasic() {
+        var data = new google.visualization.DataTable();
+
+        data.addColumn('datetime', 'X');
+        data.addColumn('number', 'Rate');
+
+        data.addRows(array);
+    
+        var options = {
+        hAxis: {
+            title: 'Time',
+        },
+        vAxis: {
+            title: 'Rate'
+        },
+        width: 1050,
+        height: 600,
+        chartArea: {
+            top: 20,
+            width: 800,
+            height: 400
+        },
+        backgroundColor: '#eeeeee',
+        color: 'red'
+        };
+    
+        var chart = new google.visualization.LineChart(grafic);
+    
+        chart.draw(data, options);
+    }
 }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Функции смена цвета кнопок и определение календарей///////////////////////////////////////////////////////////////////////////
+
 
 function colorButton(nowDays, startDays) {
 
@@ -87,12 +115,8 @@ function fcnBtn (firstId, button, rateArr){
     if(button.style.backgroundColor === 'rgb(185, 195, 211)'){
         return
     }else{
-        table.innerText = ''
-
-        rateArr.slice(firstId, rateArr[-1]).forEach((el) => {
-
-            createTable(el.Date, el.Cur_OfficialRate)
-        })
+    
+     createGrafic(rateArr.slice(firstId, rateArr[-1]))
     } 
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -100,23 +124,17 @@ function fcnBtn (firstId, button, rateArr){
 // Функция изменения даты/////////////////////////////////////////////////////////////////////////////////////////////////////////
 function fncSelect() {
     
-    table.innerText = ''
-
     if(!firstDate){
 
-        arrRate.slice(arrRate[0], lastDate).forEach((el) => {
-            createTable(el.Date, el.Cur_OfficialRate)
-        })
+        createGrafic(arrRate.slice(arrRate[0], lastDate))
+        
     }else if(!lastDate){
 
-        arrRate.slice(firstDate, arrRate[-1]).forEach((el) => {
-            createTable(el.Date, el.Cur_OfficialRate)
-        })
+        createGrafic(arrRate.slice(firstDate, arrRate[-1]))
+     
     }else{
-        
-        arrRate.slice(firstDate, lastDate).forEach((el) => {
-            createTable(el.Date, el.Cur_OfficialRate)
-        })
+
+        createGrafic(arrRate.slice(firstDate, lastDate))   
     }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
