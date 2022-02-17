@@ -75,21 +75,7 @@ let arrRate;
 
 worker2.addEventListener('message', ({data}) => {
     
-    if(data.length === 0){
-
-        grafic.innerHTML = 'Нет данных';
-
-        selectDate(today, today)
-    }else{
-        
-        arrRate = [];
-
-        data.forEach(el => arrRate.push([new Date(el.Date), el.Cur_OfficialRate]))
-        
-        createGrafic(arrRate);
-        
-        selectDate(dayjs(data[0].Date).format('YYYY-MM-DD'), dayjs(data[data.length - 1].Date).format('YYYY-MM-DD'))
-    }
+    choise(data)
 });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -114,10 +100,6 @@ let firstDate
 
 fromDate.addEventListener('change', () => {
     
-    arrRate.filter((el,id) => {
-        if(dayjs(el[0]).format('YYYY-MM-DD') == fromDate.value) firstDate = id
-    });
-    
     fncSelect()
 })
 
@@ -125,10 +107,6 @@ let lastDate
 
 toDate.addEventListener('change', () => {
 
-    arrRate.filter((el,id) => {
-        if(dayjs(el[0]).format('YYYY-MM-DD') == toDate.value) lastDate = id+1
-    });
-   
     fncSelect()
 })
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
