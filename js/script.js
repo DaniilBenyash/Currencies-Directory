@@ -56,8 +56,6 @@ function choiсeCur(result) {
 // Получение курса от воркера2///////////////////////////////////////////////////////////////////////////////////////////////////
 const worker2 = new Worker('workers/worker2.js')
 
-workerTwo(431, '2021-07-09T00:00:00', '2022-02-17')
-
 function workerTwo(idCur, start, end) {
 
     let date = [];
