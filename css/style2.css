@@ -1,0 +1,103 @@
+.params-name {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.logo-params {
+  width: 35px;
+  margin-right: 20px;
+}
+.params {
+  width: 100%;
+  background-color: #eeeeee;
+  padding: 20px 0 1px 0;
+  display: flex;
+  flex-direction: row;
+}
+.params-first-line {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 70px;
+}
+.select-cur {
+  width: 300px;
+  height: 35px;
+  border-radius: 5px;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, Arial, "Segoe UI",
+    "Helvetica Neue", "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 15px;
+}
+.select-cur:focus {
+  border: 3px solid #cbe3fa;
+}
+.date-line {
+  margin-left: 100px;
+}
+.style-date {
+  margin-right: 30px;
+  width: 200px;
+  height: 33px;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, Arial, "Segoe UI",
+    "Helvetica Neue", "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 15px;
+}
+.params-two-line {
+  margin: 0 0 40px 70px;
+}
+.but-line {
+  display: flex;
+  flex-direction: row;
+}
+.styleButton {
+  width: 200px;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, Arial, "Segoe UI",
+    "Helvetica Neue", "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 15px;
+  background-color: #cbe3fa;
+  margin-right: 30px;
+  cursor: pointer;
+}
+.formInfo{
+    margin-bottom: 40px;
+}
+.rightParam{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.imgGraf{
+    width: 60px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+.imgTable{
+    cursor: pointer;
+    width: 57px;
+}
+.nameCur {
+    margin: 30px 0 20px 0;
+    display: flex;
+    justify-content: center;
+}
+.info {
+  
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#table_div tr td{
+    text-align: center;
+    border-bottom: 1px solid rgb(212, 212, 212);
+    width: 200px;
+}

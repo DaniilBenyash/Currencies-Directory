@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="/css/toggle-style.css">
+    <link rel="stylesheet" href="/css\darkStyle.css">
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <footer>
+        <div class="toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="option">
+            <a class="styleButOption" href="/index.html">Главная</a>
+            <a class="styleButOption" href="/page/page1.html">Курс валют</a>
+            <div class="iconTheme">
+                <p>Тема сайта</p>
+                <img src="/img/sun.png" alt="" class="sun">
+            </div>
+        </div>
+
+        <img src="/img/bank-icon.png" alt="" class="logo">
+
+        <h1>BANK</h1>
+
+    </footer>
+
+    <div class="but-foot">
+        <a class="a-style" href="/index.html">Главная</a>
+        <a class="a-style" href="/page/page1.html">Курс валют</a>
+    </div>
+    
+    <div class="main-kurs">
+
+        <h2>Курс валют</h2>
+
+        <div class="params">
+            <div>
+                <div class="params-name">
+
+                    <img src="/img/params.png" alt="" class="logo-params">
+    
+                    <h3>Выберите параметры</h3>
+                </div>
+    
+                <div class="params-first-line">
+                    
+                    <div class="select-line">
+                        <h4>Список валют</h4>
+                        <select class="select-cur">
+                            <option value="">Выберите валюту</option>
+                        </select>
+                    </div>
+                    
+                    <div class="date-line">
+                        <h4>Дата</h4>
+                        <input class="style-date fromDate" type="date">
+                        <input class="style-date toDate" type="date">
+                    </div>
+                </div>
+    
+                <div class="params-two-line">
+    
+                    <h4>Период</h4>
+    
+                    <div class="but-line">
+                        <button class="styleButton buttonWeek">Неделя</button>
+                        <button class="styleButton buttonMonth">Месяц</button>
+                        <button class="styleButton buttonQuarter">Квартал</button>
+                        <button class="styleButton buttonYear">Год</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rightParam">
+
+                <h3 class="formInfo">Формат данных</h3>
+
+                <div class="rightParam">
+                    <img src="/img/graf.png" alt="" class="imgGraf">
+                    <img src="/img/tabl.png" alt="" class="imgTable">
+                </div>
+            </div>
+        </div>
+
+        <h3 class="nameCur"></h3>
+
+        <div class="info">
+            
+            <table cellspacing='0' cellpadding='10px'>
+                <tbody id="table_div"></tbody>
+            </table>
+
+            <div id="chart_div"></div>   
+
+        </div>
+        
+    </div>
+
+    <script src="/script/addScript/createGrafic.js"></script>
+    <script src="/script/addScript/createTable2.js"></script>
+    <script src="/script/main.js"></script>
+    <script src="/script/script.js"></script>
+    <script src="/script/addScript\burger.js""></script>
+</body>
+</html>

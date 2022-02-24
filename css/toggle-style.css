@@ -1,0 +1,96 @@
+
+.toggle{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    margin-right: 50px;
+}
+.toggle span {
+    position: absolute;
+    width: 10px;
+    height: 2.4px;
+    background: #CBE3FA;
+    border-radius: 4px;
+    transition: 0.5s;
+    border: 2px solid black;
+}
+.toggle span:nth-child(1){
+    transform: translateY(-10px);
+    width: 17px;
+    left: 10px;
+}
+.toggle.active span:nth-child(1){
+    width: 20px;
+    transform: translateY(0px) rotate(45deg);
+    transition-delay: 0.125s;
+}
+.toggle span:nth-child(2){
+    transform: translateY(10px);
+    width: 12px;
+    left: 10px;
+}
+.toggle.active span:nth-child(2){
+    width: 20px;
+    transform: translateY(0px) rotate(315deg);
+    transition-delay: 0.25s;
+}
+.toggle span:nth-child(3){
+    width: 20px;
+    left: 10px;
+}
+.toggle.active span:nth-child(3){
+    transform: translateX(60px);
+}
+.option{
+    position: absolute;
+    top: 75px;
+    background: #fff;
+    overflow: hidden;
+    display: none;
+    background-color: #eeeeee;
+    color: rgba(29, 29, 29, 0.54);
+    border: 1px solid rgb(212, 212, 212);
+}
+.option div{
+    cursor: pointer;
+}
+.option div:hover{
+    background-color: #EEF7FF;
+    color: #000000;
+}
+.styleButOption{
+    text-decoration: none;
+    height: 50px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+.styleButOption:visited {
+    color: rgba(102, 102, 102, 0.54);
+    text-decoration: none;
+    
+}
+.styleButOption:hover {
+    color: black;
+    background-color: #EEF7FF;
+}
+
+.iconTheme{
+    text-align: center;
+    padding: 10px 10px 10px 20px;
+}
+.iconTheme p{
+    text-align: left;
+    margin-top: 0;
+}
+.sun{  
+    width: 30px;
+}
