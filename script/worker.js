@@ -4,13 +4,10 @@ fetch('https://www.nbrb.by/api/exrates/currencies')
         let allCurr = []
     
         arr.forEach(el => {
-            allCurr[el.Cur_Name] = []
-            
+            if(!allCurr[el.Cur_Name]) allCurr[el.Cur_Name] = []
+            allCurr[el.Cur_Name].push(el)
        })
-       arr.forEach(el => {
-           allCurr[el.Cur_Name].push(el)
-           
-      })
+      
       return allCurr
     })
     .then(curr => ({
@@ -30,7 +27,7 @@ const mapping = {
         funcRate(data)
     },
     dynamics: (data) => {
-
+ 
         funcDynamics(data)
     }
 }
@@ -46,40 +43,38 @@ function funcRate(data){
 }
 
 function funcDynamics(data){
-    
-    const arr = data.choiseCur;
-        
-    let allRateTime = []
-    let i = 0
-    
-    arr.forEach(el => {
-        let request = el.Cur_DateStart.map((date) => fetch(`https://www.nbrb.by/api/exrates/rates/dynamics/${el.Cur_ID}?startdate=${date}&enddate=${el.Cur_DateEnd}`))
 
-        Promise.all(request)
+    let allFetch = []
+    
+    data.choiseCur.forEach(el => {
+        el.Cur_DateStart.forEach(date =>{
+            allFetch.push(fetch(`https://www.nbrb.by/api/exrates/rates/dynamics/${el.Cur_ID}?startdate=${date}&enddate=${el.Cur_DateEnd}`))
+        })
+        
+    })
+
+    Promise.all(allFetch)
         .then(responses => Promise.all(responses.map(data => data.json())))
         .then(data => {
             data.forEach((el,id,arr) => {
-
+                    
                 if(el.length == 0) arr.splice(id)
             })
-            
-            i++
-
-            data.forEach(ell => {
-                ell.forEach(elll => {
-                    allRateTime.push(elll);
+                  
+            let allRateTime = [];
+                    
+            data.forEach(el2 => {
+                el2.forEach(el3 => {
+                    allRateTime.push(el3);
                 })  
             })
-                
+            
             return allRateTime
         })
         .then(curr => {
-            if(i === arr.length){
-                postMessage({
-                    msg: 'dynamics',
-                    curr
-                })
-            }
+            postMessage({
+                msg: 'dynamics',
+                curr
+            })
         })
-    })
 }

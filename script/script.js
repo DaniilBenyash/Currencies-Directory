@@ -14,25 +14,18 @@ let dynamicsRate;
 
 const mapCur = {
     currencies: (curr) => {
+        
+        createSelect(curr);
         allCurr = curr;
-        createSelect(allCurr);
     },
     rate: (curr) => {
+        
         createTable(curr.Cur_Name, curr.Cur_Abbreviation, curr.Cur_OfficialRate, curr.Cur_Scale);
     },
     dynamics: (curr) => {
 
+        createInfo(curr);
         dynamicsRate = curr;
-        
-        dynamicsRate.sort(function(a, b) {
-            if (a.Date > b.Date) {
-                return 1
-              }
-              if (a.Date < b.Date) {
-                return -1
-              }
-        })
-        createInfo(dynamicsRate);
     }
 }
 
