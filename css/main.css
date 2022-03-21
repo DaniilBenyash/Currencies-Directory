@@ -1,0 +1,118 @@
+.bodyMain{
+    box-shadow: inset 0px 0px 5px 0px #000000;
+    padding-bottom: 25px;
+}
+.main{
+    padding: 1px 0 0 55px;
+    width: 25%;
+}
+.main h2{
+    margin-bottom: 0;
+}
+.main h4{
+    margin: 10px 0 10px 0;
+}
+.options{
+    display: flex;
+    flex-direction: row;
+}
+.mainMargin{
+    margin-right: 60px;
+}
+.select{
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    padding-left: 10px;
+    background: #BAE0BD;
+    box-shadow: 0px 0px 5px 0px #000000;
+}
+.date{   
+    display: flex;
+    flex-direction: column;
+}
+.style-date{
+    width: 200px;
+    height: 35px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    padding-left: 10px;
+    background-color: #BAE0BD;;
+    margin-right: 20px;
+    border: none;
+    box-shadow: 0px 0px 5px 0px #000000;
+}
+.dateMargin{
+    margin-bottom: 15px;
+}
+.but-line{
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: 35px 35px;
+    grid-gap: 10px;
+}
+.styleButton{
+    background-color: #BAE0BD;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0px 0px 5px 0px #000000;
+}
+.styleButton:hover{
+    border: 2px solid black;
+    cursor: pointer;
+}
+.styleButton:active{
+    background-color: #5E9C76;
+}
+.butStyle{
+    background-color: #BAE0BD;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0px 0px 5px 0px #000000;
+    cursor: pointer;
+}
+.butDataFormat{
+    display: grid;
+    grid-template-columns: 200px;
+    grid-template-rows: 35px 35px;
+    grid-gap: 10px
+}
+.butDataFormat button{
+    background-color: #BAE0BD;
+}
+.nameCur{
+    width: 100%;
+    text-align: center;
+    margin: 30px 0 0 0;
+}
+.noData{
+    margin: 0;
+}
+#chartdiv {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 50px;
+  }
+.tableStyle{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#table_div tr td{
+    text-align: center;
+    border-bottom: 1px solid rgb(212, 212, 212);
+    width: 200px;
+}

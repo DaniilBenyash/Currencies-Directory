@@ -1,0 +1,20 @@
+@media screen and (max-width: 1290px) {
+    .option{
+        margin-left: 300px;
+        width: 350px;
+    }
+}
+@media screen and (max-width: 980px) {
+    .option{
+        margin-left: 50px;
+        width: 350px;
+    }
+    .contentRightIndex{
+        width: 120%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .contentIndex{
+        flex-direction: column;
+    }
+}

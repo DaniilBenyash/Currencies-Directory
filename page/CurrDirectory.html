@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/switch.css">
+    <link rel="stylesheet" href="/css/adaptiveStyle.css">
+    
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+</head>
+<body>
+    <footer>
+        <a href="/index.html" class="logo">
+            <img src="/image/icons8-деньги-в-руке-80.png" alt="">
+            <h1>Bank</h1>
+        </a>
+
+        <div class="option">
+            <a href="/index.html" class="theme">MAIN</a>
+            <a href="/page/CurrDirectory.html"class="theme">CURRENCIES DIRECTORY</a>
+        </div>
+        
+        <div class="switch">
+            <div class="switch-btn switch-on"></div>
+            <p>Theme</p>
+        </div>
+    </footer>
+
+    <div class="bodyMain">
+        <div class="main">
+            <h2>OPTIONS</h2>
+            <div class="options">
+                <div class="mainMargin">
+                    <h4>LIST OF CURRENCIES</h4>
+                    <select name="" class="select"></select>
+                </div>
+                <div class="mainMargin">
+                    <h4>DATE</h4>
+                    <div class="date">
+                        <input class="style-date fromDate dateMargin" type="date">
+                        <input class="style-date toDate" type="date">
+                    </div>
+                </div>
+                <div class="mainMargin">
+                    <h4>PERIOD</h4> 
+                    <div class="but-line">
+                        <button class="styleButton buttonWeek">WEEK</button>
+                        <button class="styleButton buttonMonth">MONTH</button>
+                        <button class="styleButton buttonQuarter">QUARTER</button>
+                        <button class="styleButton buttonYear">YEAR</button>
+                    </div>
+                </div>
+                <div>
+                    <h4>DATA FORMAT</h4>
+                    <div class="butDataFormat">
+                        <button class="butStyle butGraf">CHART</button>
+                        <button class="butStyle butTable">TABLE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="nameCur"></h2>
+    <h3 class="noData nameCur"></h3>
+
+    <table cellspacing='0' cellpadding='10px' class="tableStyle">
+        <tbody id="table_div"></tbody>
+    </table>
+
+    <div id="chartdiv"></div>
+
+    <script src="/script//addScript/switch.js"></script>
+    <script src="/script/addScript/createGrafic.js"></script>
+    <script src="/script/addScript/createTable.js"></script>
+    <script src="/script/main.js"></script>
+    <script src="/script/script.js"></script>
+</body>
+</html>

@@ -4,64 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bank</title>
+    <title>Document</title>
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/toggle-style.css">
-    <link rel="stylesheet" href="/css\darkStyle.css">
-    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <link rel="stylesheet" href="/css/switch.css">
+    <link rel="stylesheet" href="/css/adaptiveStyle.css">
+    <link rel="stylesheet" href="/css/indexMain.css">
 </head>
 <body>
     <footer>
-
-        <div class="toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <a href="/index.html" class="logo">
+            <img src="/image/icons8-деньги-в-руке-80.png" alt="">
+            <h1>Bank</h1>
+        </a>
 
         <div class="option">
-            <a class="styleButOption" href="/index.html">Главная</a>
-            <a class="styleButOption" href="/page/page1.html">Курс валют</a>
-
-            <div class="iconTheme">
-                <p class="themeSite">Тема сайта</p>
-                <img src="/img/sun.png" alt="" class="sun">
-            </div>
-
+            <a href="/index.html" class="theme">MAIN</a>
+            <a href="/page/CurrDirectory.html"class="theme">CURRENCIES DIRECTORY</a>
         </div>
-
-        <img src="/img/bank-icon.png" alt="" class="logo">
-
-        <h1>BANK</h1>
-
+        
+        <div class="switch">
+            <div class="switch-btn switch-on"></div>
+            <p>Theme</p>
+        </div>
     </footer>
 
-    <div class="but-foot">
-        <a class="a-style" href="index.html">Главная</a>
-        <a class="a-style" href="/page/page1.html">Курс валют</a>
+    <div class="contentIndex">
+
+        <div class="textMain">
+            <div><a href="/page/CurrDirectory.html" class="textMainFirst">Here</a></div>
+            <div><p class="textMainSecond">you can see information about the official exchange rate of the Belarusian ruble for foreign currencies, set by the National Bank of the Republic of Belarus</p></div>
+        </div>
+        <div class="contentRightIndex">
+            <h2>EXCHANGE RATE FOR TODAY</h2>
+            <div class="contentTable">
+                <table class="kurs-table">
+                    <tbody class="table">
+                        <tr  class="main-kurs-params">
+                            <td><h4>CURRENCY NAME</h4></td>
+                            <td><h4>CURRENCY CODE</h4></td>
+                            <td><h4>COURSE</h4></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-
-    <div class="main-kurs">
-
-        <h2>Курс валют на сегодня</h2>
-
-        <table class="kurs-table">
-            <tbody class="table">
-                <tr  class="main-kurs-params">
-                    <td><h4>Название валюты</h4></td>
-                    <td><h4>Код валюты</h4></td>
-                    <td><h4>Курс</h4></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <p class="kurs-today"></p>
-
-    </div>
-   
-    <script src="/script/main.js"></script>
-    <script src="/script/script.js"></script>
-    <script src="/script/addScript/createTable.js"></script>
-    <script src="/script/addScript\burger.js"></script>
+  
+    <script src="/script//addScript/switch.js"></script>
+    <script src="/script/index.js"></script>
 </body>
 </html>

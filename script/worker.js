@@ -7,7 +7,7 @@ fetch('https://www.nbrb.by/api/exrates/currencies')
             if(!allCurr[el.Cur_Name]) allCurr[el.Cur_Name] = []
             allCurr[el.Cur_Name].push(el)
        })
-      
+
       return allCurr
     })
     .then(curr => ({
@@ -45,14 +45,14 @@ function funcRate(data){
 function funcDynamics(data){
 
     let allFetch = []
-    
+
     data.choiseCur.forEach(el => {
         el.Cur_DateStart.forEach(date =>{
             allFetch.push(fetch(`https://www.nbrb.by/api/exrates/rates/dynamics/${el.Cur_ID}?startdate=${date}&enddate=${el.Cur_DateEnd}`))
         })
         
     })
-
+    
     Promise.all(allFetch)
         .then(responses => Promise.all(responses.map(data => data.json())))
         .then(data => {
@@ -68,8 +68,18 @@ function funcDynamics(data){
                     allRateTime.push(el3);
                 })  
             })
-            
+
+            allRateTime.sort(function(a, b) {
+                if (a.Date > b.Date) {
+                    return 1
+                  }
+                  if (a.Date < b.Date) {
+                    return -1
+                  }
+            })
+
             return allRateTime
+
         })
         .then(curr => {
             postMessage({

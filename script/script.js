@@ -1,5 +1,3 @@
-const today = dayjs().format('YYYY-MM-DD');
-
 const worker = new Worker('/script/worker.js');
 
 worker.addEventListener('message', ({data}) => {
@@ -14,18 +12,15 @@ let dynamicsRate;
 
 const mapCur = {
     currencies: (curr) => {
-        
-        createSelect(curr);
         allCurr = curr;
-    },
-    rate: (curr) => {
-        
-        createTable(curr.Cur_Name, curr.Cur_Abbreviation, curr.Cur_OfficialRate, curr.Cur_Scale);
+        createSelect(curr);
+        firstChoice();
     },
     dynamics: (curr) => {
-
-        createInfo(curr);
+        
         dynamicsRate = curr;
+        localStor(curr)
+        createInfo(curr);
     }
 }
 
@@ -34,16 +29,16 @@ select.addEventListener('change', () => {
 })
 
 buttonYear.addEventListener('click', () => {
-    fcnBtn (-365,buttonYear, dynamicsRate);
+    fcnBtn (-365,dynamicsRate);
 })
 buttonQuarter.addEventListener('click', () => {
-    fcnBtn (-91, buttonQuarter, dynamicsRate);
+    fcnBtn (-91,dynamicsRate);
 })
 buttonMonth.addEventListener('click',() => {
-    fcnBtn (-31, buttonMonth, dynamicsRate);
+    fcnBtn (-31, dynamicsRate);
 })
 buttonWeek.addEventListener('click', () => {
-    fcnBtn (-7, buttonWeek, dynamicsRate);
+    fcnBtn (-7, dynamicsRate);
 })
 
 let firstDate;

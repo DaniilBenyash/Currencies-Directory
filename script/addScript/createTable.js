@@ -1,46 +1,60 @@
-const table = document.querySelector('.table');
+const table = document.querySelector('#table_div');
+const grafic = document.querySelector('#chartdiv')
+const butGraf = document.querySelector('.butGraf');
+const butTable = document.querySelector('.butTable');
 
-function createTable(name, abbr, rate, scale){
+butGraf.style.background = '#5E9C76';
+butGraf.style.border = '2px solid black'
+
+butGraf.addEventListener('click', () => {
+
+    butGraf.style.background = '#5E9C76';
+    butGraf.style.border = '2px solid black'
+    butTable.style.background = null;
+    butTable.style.border = null;
+
+    table.style.display = 'none';
+    grafic.style.display = 'block';
+})
+
+butTable.addEventListener('click', () => {
+
+    butGraf.style.background = null;
+    butGraf.style.border = null;
+    butTable.style.background = '#5E9C76';
+    butTable.style.border = '2px solid black'
+
+
+    table.style.display = 'block';
+    grafic.style.display = 'none';
+})
+
+function createTable(data) {
+
+    table.innerHTML = '';
+
+    data.forEach(el => {
+        createTd(el[0], el[1]);
+    }) 
+}
+
+function createTd(Date, Cur_OfficialRate,){
+    
     const tr = document.createElement('tr');
     const td1 = document.createElement('td');
     const td2 = document.createElement('td');
-    const td3 = document.createElement('td');
 
-    tr.append(td1, td2, td3);
-    
-    if(name == 'Российских рублей'){
-        name = 'Российский рубль';
-    }
-    
-    const img = new Image();
-    img.src = `/img/${name}.png`;
-    img.style.width = '20px';
-    
-    styleTd(td1)
-    td1.append(img, name);   
-    td2.innerText = scale + ' ' + abbr;
-    td3.innerText = rate;
+    tr.append(td1,td2);
 
-    table.append(tr);
+    td1.innerText = dayjs(Date).format('YYYY-MM-DD');
+    td2.innerText = Cur_OfficialRate;
+
+    table.prepend(tr);
 }
 
-worker.postMessage({
-    msg: 'rate',
-    id: 431,
-})
-worker.postMessage({
-    msg: 'rate',
-    id: 456,
-})
-worker.postMessage({
-    msg: 'rate',
-    id: 451,
-})
-
-function styleTd(td){
-    td.style.display = 'flex';
-    td.style.alignItems = 'center';
-    td.style.justifyContent = 'center';
+if(!butTable.style.background){
+    table.style.display = 'none';
 }
-
-document.querySelector('.kurs-today').innerText = 'Курс валют на ' + dayjs().format('DD.MM.YYYY');
+if(!butGraf.style.background){
+    grafic.style.display = 'none';
+}
